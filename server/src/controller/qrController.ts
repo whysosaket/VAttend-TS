@@ -19,12 +19,12 @@ const generateQR = async (req: Request, res: Response) => {
       
         const uri = ADD_SERVER+"/api/scan/" + securedURI;
         QRCode.toDataURL(uri, function (err, imgurl) {
-          res.json({success: true, imgurl, uri});
+          return res.json({success: true, imgurl, uri});
         });
     
       } catch (error) {
         console.log(error);
-        res.json({ error: "Something Went Wrong!" });
+        return res.json({ error: "Something Went Wrong!" });
       }
 };
 

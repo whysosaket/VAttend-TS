@@ -17,10 +17,10 @@ const fetchAllRecords = async (req: CustomRequest, res: Response) => {
         records.map((record) => {
           record.date = addMinutes(record.date, 330);
         });
-        res.json({ success: true, records });
+        return res.json({ success: true, records });
       } catch (error) {
         console.log(error);
-        res.json({ success: false, error: "Something Went Wrong!" });
+        return res.json({ success: false, error: "Something Went Wrong!" });
       }
 };
 

@@ -38,10 +38,10 @@ const fetchUser = async (req: CustomRequest, res: Response) => {
     };
 
     success = true;
-    res.json({ success, details });
+    return res.json({ success, details });
   } catch (error) {
     console.log(error);
-    res.json({ error: "Something Went Wrong!" });
+    return res.json({ error: "Something Went Wrong!" });
   }
 };
 
@@ -73,10 +73,10 @@ const updatePassword = async (req: CustomRequest, res: Response) => {
     await user.save();
 
     success = true;
-    res.json({ success, message: "Password Updated Successfully!!" });
+    return res.json({ success, message: "Password Updated Successfully!!" });
   } catch (error) {
     console.log(error);
-    res.json({ success: false, error: "Something Went Wrong!" });
+    return res.json({ success: false, error: "Something Went Wrong!" });
   }
 };
 

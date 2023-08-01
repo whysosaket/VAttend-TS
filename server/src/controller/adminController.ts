@@ -89,10 +89,10 @@ const fetchUser = async (req: CustomRequest, res: Response) => {
       present: isPresent,
     };
     success = true;
-    res.json({ success, details });
+    return res.json({ success, details });
   } catch (error) {
     console.log(error);
-    res.json({ success: false, error: "Internal Server Error!" });
+    return res.json({ success: false, error: "Internal Server Error!" });
   }
 };
 
@@ -126,10 +126,10 @@ const fetchUserRecords = async (req: CustomRequest, res: Response) => {
     records.map((record) => {
       record.date = addMinutes(record.date, 330);
     });
-    res.json({ success: true, records });
+    return res.json({ success: true, records });
   } catch (error) {
     console.log(error);
-    res.json({ success: false, error: "Something Went Wrong!" });
+    return res.json({ success: false, error: "Something Went Wrong!" });
   }
 };
 
@@ -154,10 +154,10 @@ const deleteUser = async (req: CustomRequest, res: Response) => {
     // Performing the delete operation
     await User.findByIdAndDelete(req.body.id);
 
-    res.json({ success: true, info: "Person Deleted!!!" });
+    return res.json({ success: true, info: "Person Deleted!!!" });
   } catch (error) {
     console.log(error);
-    res.json({ success: false, error: "Something Went Wrong!" });
+    return res.json({ success: false, error: "Something Went Wrong!" });
   }
 };
 

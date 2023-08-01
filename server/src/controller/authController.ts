@@ -74,10 +74,10 @@ const createUser = async (req: CustomRequest, res: Response) => {
       },
     };
     success = true;
-    res.json({ success, info: "Account Created Successfully!!" });
+    return res.json({ success, info: "Account Created Successfully!!" });
   } catch (error) {
     console.log(error);
-    res.json({ error: "Something Went Wrong!" });
+    return res.json({ error: "Something Went Wrong!" });
   }
 };
 
@@ -114,10 +114,10 @@ const loginUser = async (req: Request, res: Response) => {
     const authtoken = jwt.sign(payload, JWT_SECRET);
     const devicetoken = md5(user.employee_id) + Math.random();
     success = true;
-    res.json({ success, authtoken, devicetoken });
+    return res.json({ success, authtoken, devicetoken });
   } catch (error) {
     console.log(error);
-    res.json({ error: "Something Went Wrong!" });
+    return res.json({ error: "Something Went Wrong!" });
   }
 };
 

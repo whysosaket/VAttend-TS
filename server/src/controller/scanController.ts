@@ -94,17 +94,17 @@ const scan = async (req: newCustomRequest, res: Response) => {
         success = true;
 
         
-        if(present) res.json({success, present: true, distance: dist, name: users.name, employee_id: users.employee_id, time: nowTime, date: nowDate});
-        else res.json({success, present: false, distance: dist, name: users.name, employee_id: users.employee_id, time: nowTime, date: nowDate});
+        if(present) return res.json({success, present: true, distance: dist, name: users.name, employee_id: users.employee_id, time: nowTime, date: nowDate});
+        else return res.json({success, present: false, distance: dist, name: users.name, employee_id: users.employee_id, time: nowTime, date: nowDate});
 
     }catch(error){
         console.log(error);
-        res.json({success: false, error: "Somthing went wrong!"})
+        return res.json({success: false, error: "Somthing went wrong!"})
     }
 };
 
 const getScan = async (req: Request, res: Response) => {
-    res.redirect(ADD_REACT+'/scanned/'+req.params.id);
+    return res.redirect(ADD_REACT+'/scanned/'+req.params.id);
 };
 
 export {scan, getScan};
