@@ -1,6 +1,24 @@
+<script>
+  import Button from "../components/Button.svelte";
+  import Qr from "../components/QR.svelte";
 
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+  export let data;
+
+  // Calculating time
+  let seconds = new Date().getSeconds() * 1000;
+  let waitingTime = seconds <= 30000 ? 30000 - seconds : 60000 - seconds;
+  let refreshTime = 30000;
+  
+
+</script>
+
+<div class="flex justify-center">
+  <div class="">
+    <Qr QRLink={data.imageURL}/>
+    <h1 class="text-center my-4 font-semibold">Scan Code To Mark Attendance</h1>
+    <Button ButtonValue="Mark Attendance"/>
+  </div>
+</div>
 
 <style lang="postcss">
     :global(html) {
