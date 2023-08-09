@@ -5,10 +5,6 @@
 
     const HOST = import.meta.env.VITE_HOST;
 
-    $: {
-        console.log(uri);
-    }
-
     const handleMarkAttendance = async ()=>{
         const authToken = localStorage.getItem("vattend-token");
         const deviceToken = localStorage.getItem("vadevicetoken");

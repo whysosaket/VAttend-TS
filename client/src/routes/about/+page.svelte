@@ -1,5 +1,25 @@
+<script>
+     
+</script>
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
 
-<div>
-This is about
+<div class="flex justify-center my-8">
+    <div>
+        <div class="text-center">
+            <img src="./saket.jpeg" class="rounded-full mx-auto" alt="profilephoto">
+            <h1 class="text-4xl text-green-500 font-bold my-2">Saket Aryan</h1>
+            <h1 class="font-semibold text-sm">Hey! This is me Saket. I'm a professional and passionate code copier.</h1>
+        </div>
+
+        <div class="my-4 text-center">
+            <h4 class="mt-32 md:mt-36 font-bold">Connect With Me</h4>
+            <a href="https://www.linkedin.com/in/saketaryan/"><i class="text-[#0077B5] mx-1 fa-brands fa-linkedin fa-2x"></i></a>
+            <a href="https://github.com/whysosaket/"><i class="text-[#171515] mx-1 fa-brands fa-github fa-2x"></i></a>
+            <a href="https://www.instagram.com/saketaryann/"><i class="text-[#E12D6C] mx-1 fa-brands fa-instagram fa-2x"></i></a>
+            <a href="https://twitter.com/whysosaket"><i class="text-[#1DA1F2] mx-1 fa-brands fa-twitter fa-2x"></i></a>
+            <a href="https://www.facebook.com/saket.aryan"><i class="text-[#4267B2] mx-1 fa-brands fa-facebook fa-2x"></i></a>
+        </div>
+        
+    </div>
 </div>

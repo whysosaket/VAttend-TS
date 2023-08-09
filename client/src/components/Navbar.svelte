@@ -1,6 +1,9 @@
 <script>
     import { goto } from '$app/navigation';
     const imageURL = "https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-suite-everything-you-need-know-about-google-newest-0.png";
+
+    let authToken = localStorage.getItem("vattend-token");
+
     const toggleNav = () => {
         const nav = document.querySelector(".mobile-menu");
         nav.classList.toggle("hidden");
@@ -34,12 +37,8 @@
             </div>
             <!-- Secondary Navbar items -->
             <div class="hidden md:flex items-center space-x-3 ">
-                {#if (localStorage.getItem("vattend-token") == null) }
-                <a id="login" href="/login" class="py-2 px-2 font-medium text-gray-500 rounded hover:bg-green-500 hover:text-white transition duration-300">Log In</a>
-                {/if}
-                {#if (localStorage.getItem("vattend-token") != null) }
-                <button id="logout" on:click={handleSignOut} class="py-2 px-2 font-medium text-white bg-green-500 rounded hover:bg-green-400 transition duration-300">Log Out</button>
-                {/if}
+                <a id="login" href="/login" class={`${(authToken == null)?"block":"hidden"} py-2 px-2 font-medium text-gray-500 rounded hover:bg-green-500 hover:text-white transition duration-300`}>Log In</a>
+                <button id="logout" on:click={handleSignOut} class={`${(authToken != null)?"block":"hidden"} py-2 px-2 font-medium text-white bg-green-500 rounded hover:bg-green-400 transition duration-300`}>Log Out</button>
             </div>
             <!-- Mobile menu button -->
             <div class="md:hidden flex items-center">
