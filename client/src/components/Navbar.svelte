@@ -1,5 +1,7 @@
 <script>
     import { goto } from '$app/navigation';
+  import { onDestroy } from 'svelte';
+    import { records, user } from '../stores.js';
     const imageURL = "https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-suite-everything-you-need-know-about-google-newest-0.png";
 
     let authToken = localStorage.getItem("vattend-token");
@@ -13,7 +15,22 @@
         goto("/login")
         document.querySelector("#logout").classList.add("hidden");
         document.querySelector("#login").classList.remove("hidden");
+        records.set([]);
+        user.set({
+            name: "N/A",
+            employeeId: "N/A",
+            dateAdded: "N/A",
+            timeAdded: "N/A",
+            admin: false,
+            present: false,
+            loggedIn: false,
+        });
     }
+    let userContent
+    const unsubscribe = user.subscribe(value => {
+        userContent = value
+    })
+    onDestroy(unsubscribe);
 </script>
 
 <nav class="bg-white shadow-lg">
@@ -37,8 +54,8 @@
             </div>
             <!-- Secondary Navbar items -->
             <div class="hidden md:flex items-center space-x-3 ">
-                <a id="login" href="/login" class={`${(authToken == null)?"block":"hidden"} py-2 px-2 font-medium text-gray-500 rounded hover:bg-green-500 hover:text-white transition duration-300`}>Log In</a>
-                <button id="logout" on:click={handleSignOut} class={`${(authToken != null)?"block":"hidden"} py-2 px-2 font-medium text-white bg-green-500 rounded hover:bg-green-400 transition duration-300`}>Log Out</button>
+                <a id="login" href="/login" class={`${!userContent.loggedIn?"block":"hidden"} py-2 px-2 font-medium text-gray-500 rounded hover:bg-green-500 hover:text-white transition duration-300`}>Log In</a>
+                <button id="logout" on:click={handleSignOut} class={`${userContent.loggedIn?"block":"hidden"} py-2 px-2 font-medium text-white bg-green-500 rounded hover:bg-green-400 transition duration-300`}>Log Out</button>
             </div>
             <!-- Mobile menu button -->
             <div class="md:hidden flex items-center">

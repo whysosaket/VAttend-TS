@@ -1,7 +1,7 @@
 <script>
   import {blur} from "svelte/transition";
   import { goto } from "$app/navigation";
-  import { progress } from "../../stores.js";
+  import { progress, user } from "../../stores.js";
   function updateBar(value) {
     progress.set(value);
   }
@@ -25,10 +25,10 @@
     updateBar(0.8);
     if (data.success) {
       localStorage.setItem("vattend-token", data.authtoken);
-      // Save device-token
       if (!localStorage.getItem("vadevicetoken")) {
         localStorage.setItem("vadevicetoken", data.devicetoken);
       }
+      user.set({...user, loggedIn: true});
       updateBar(1);
       goto("/");
       setTimeout(() => {
