@@ -43,13 +43,13 @@
   };
 
   if (!localStorage.getItem("vattend-token")) {
-    goto("/");
+    goto("/login");
   } else {
     if (
       userContent.loggedIn &&
       (userContent.admin == false || userContent.admin == undefined)
     ) {
-      goto("/");
+      goto("/profile");
     } else if (
       userContent.loggedIn == false ||
       userContent.name == "N/A" ||
@@ -68,13 +68,19 @@
       link: "/admin/dashboard",
     },
     {
-      title: "Add Employee",
+      title: "Add New Employee",
       description: "Add a new employee to the database.",
-      button: "Add New Employee",
+      button: "Add Employee",
       link: "/admin/add",
     },
   ];
 </script>
+
+<svelte:head>
+	<title>Admin - VAttend</title>
+	<meta name="robots" content="noindex nofollow" />
+	<html lang="en" />
+</svelte:head>
 
 <div in:blur={{ duration: 500 }}>
   <h1 class="text-center my-8 font-bold text-3xl text-gray-700">

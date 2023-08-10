@@ -46,10 +46,10 @@
                 </div>
                 <!-- Primary Navbar items -->
                 <div class="hidden md:flex items-center space-x-1">
-                    <a href="/" class="py-4 px-2 text-green-500 border-b-4 border-green-500 font-semibold ">Home</a>
-                    <a href="/profile" class="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300">Profile</a>
-                    <a href="/admin" class="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300">Admin</a>
-                    <a href="/about" class="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300">About</a>
+                    <a href="/" class="py-4 px-2 border-b-4 border-white hover:border-green-500 text-gray-500 font-semibold hover:text-green-500 transition duration-300">Home</a>
+                    <a href="/profile" class={`${userContent.loggedIn?"block":"hidden"} py-4 px-2 border-b-4 border-white hover:border-green-500 text-gray-500 font-semibold hover:text-green-500 transition duration-300`}>Profile</a>
+                    <a href="/admin" class={`${userContent.admin?"block":"hidden"} py-4 px-2 border-b-4 border-white hover:border-green-500 text-gray-500 font-semibold hover:text-green-500 transition duration-300`}>Admin</a>
+                    <a href="/about" class="py-4 px-2 border-b-4 border-white hover:border-green-500 text-gray-500 font-semibold hover:text-green-500 transition duration-300">About</a>
                 </div>
             </div>
             <!-- Secondary Navbar items -->
@@ -80,15 +80,15 @@
     <!-- mobile menu -->
     <div class="hidden mobile-menu">
         <ul class="">
-            <li class="active"><a href="/" class="block text-sm px-2 py-4 text-white bg-green-500 font-semibold">Home</a></li>
+            <li class=""><a href="/" class="block text-sm px-2 py-4 bg-green-500 bg-opacity-25 transition duration-300 font-semibold">Home</a></li>
             <li><a href="/profile" class="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300">Profile</a></li>
             <li><a href="/admin" class="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300">Admin</a></li>
             <li><a href="/about" class="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300">About</a></li>
             <li class="p-2">
-                <a id="login" href="/login" class={`${(authToken == null)?"block":"hidden"} py-2 px-2 font-medium text-gray-500 rounded hover:bg-green-500 hover:text-white transition duration-300`}>Log In</a>
+                <a id="login" href="/login" class={`${(!userContent.loggedIn)?"block":"hidden"} py-2 px-2 font-medium text-gray-500 rounded hover:bg-green-500 hover:text-white transition duration-300`}>Log In</a>
             </li>
             <li class="p-2">
-                <button id="logout" on:click={handleSignOut} class={`${(authToken != null)?"block":"hidden"} py-2 px-2 font-medium text-white bg-green-500 rounded hover:bg-green-400 transition duration-300`}>Log Out</button>
+                <button id="logout" on:click={handleSignOut} class={`${(userContent.loggedIn)?"block":"hidden"} py-2 px-2 font-medium text-white bg-green-500 rounded hover:bg-green-400 transition duration-300`}>Log Out</button>
             </li>
         </ul>
     </div>

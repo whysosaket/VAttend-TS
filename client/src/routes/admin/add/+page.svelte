@@ -2,7 +2,7 @@
     import {goto} from '$app/navigation'
     import { onDestroy } from 'svelte';
     import {user} from '../../../stores.js'
-  import AllEmployess from '../../../components/Admin/AllEmployess.svelte';
+  import AddForm from '../../../components/Admin/AddForm.svelte';
 
     let userContent
     const unsubscribe = user.subscribe(value => {
@@ -19,16 +19,11 @@
 </script>
 
 <svelte:head>
-	<title>Dashboard - VAttend</title>
+	<title>Add Employee - VAttend</title>
 	<meta name="robots" content="noindex nofollow" />
 	<html lang="en" />
 </svelte:head>
 
 <div>
-    <div class="flex justify-center">
-        <div class="my-8">
-            <h1 class="text-center font-bold text-3xl text-gray-700">All <span class="text-green-500">Employees</span></h1>
-            <AllEmployess />
-        </div>
-    </div>
+    <AddForm />
 </div>

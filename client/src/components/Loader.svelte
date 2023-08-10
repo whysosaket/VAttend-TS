@@ -27,10 +27,13 @@
 <style>
 #spin:after {
   content:"Loading...";
-  animation: spin 5s linear infinite;
+  animation: spin 15s linear infinite;
 }
 @keyframes spin {
   0% { content:"Loading...";}
-  50% { content: "VAttend..."; }
+  20% { content: "VAttend..."; }
+  40% { content: "Loading..."; }
+  60% { content: "VAttend..."; }
+  80% { content: "Something Seems to be Wrong!"; }
 }
 </style>

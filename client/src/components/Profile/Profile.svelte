@@ -42,7 +42,7 @@
   };
 
   if(!localStorage.getItem('vattend-token')){
-    goto('/');
+    goto('/login');
   } else {
     if((userContent.loggedIn==false)||(userContent.name=="N/A"||userContent.employeeId==undefined)){
       getProfile();
