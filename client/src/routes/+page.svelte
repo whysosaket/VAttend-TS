@@ -45,7 +45,7 @@
   });
 </script>
 <svelte:head>
-	<title>VAttend Home</title>
+	<title>Home - VAttend</title>
 	<meta name="robots" content="noindex nofollow" />
 	<html lang="en" />
 </svelte:head>
