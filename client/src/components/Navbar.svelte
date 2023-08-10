@@ -2,9 +2,7 @@
     import { goto } from '$app/navigation';
   import { onDestroy } from 'svelte';
     import { records, user } from '../stores.js';
-    const imageURL = "https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-suite-everything-you-need-know-about-google-newest-0.png";
-
-    let authToken = localStorage.getItem("vattend-token");
+    const imageURL = "/logo.png";
 
     const toggleNav = () => {
         const nav = document.querySelector(".mobile-menu");

@@ -46,7 +46,8 @@
 
             if(json.success){
                 message = "";
-                alert(json.message);
+                if(json.present) alert("Attendance Marked Successfully!");
+                else alert("Attendance Recorded, Not Marked!");
             }else{
                 message = json.error;
             }
@@ -60,7 +61,7 @@
     }
 </script>
 
-<div class="flex justify-center">
+<div class="flex flex-col justify-center">
 <button on:click={handleMarkAttendance} class="mx-auto py-2 px-2 font-medium text-white bg-green-500 rounded hover:bg-green-400 transition duration-300">{ButtonValue}</button>
 <h1 class="text-center my-4 font-semibold">{message}</h1>
 </div>

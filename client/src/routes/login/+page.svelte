@@ -30,7 +30,7 @@
       }
       user.set({...user, loggedIn: true});
       updateBar(1);
-      goto("/");
+      goto("/profile");
       setTimeout(() => {
         progress.set(0);
       }, 100);
@@ -51,12 +51,12 @@
   <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
     <div class="sm:mx-auto sm:w-full sm:max-w-sm">
       <img
-        class="mx-auto h-10 w-auto"
-        src="https://tailwindui.com/img/logos/mark.svg?color=green&shade=600"
+        class="mx-auto h-16 w-auto"
+        src="/logo.png"
         alt="Your Company"
       />
       <h2
-        class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900"
+        class="mt-15 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900"
       >
         Log in to your account
       </h2>
@@ -115,15 +115,6 @@
           >
         </div>
       </form>
-
-      <p class="mt-10 text-center text-sm text-gray-500">
-        Not a member?
-        <a
-          href="/trial"
-          class="font-semibold leading-6 text-green-500 hover:text-green-700"
-          >Start a 14 day free trial</a
-        >
-      </p>
     </div>
   </div>
 </div>
