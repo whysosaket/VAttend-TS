@@ -1,4 +1,5 @@
 <script>
+  import {blur} from "svelte/transition";
   import { goto } from "$app/navigation";
   import { progress } from "../../stores.js";
   function updateBar(value) {
@@ -46,7 +47,7 @@
 	<html lang="en" />
 </svelte:head>
 
-<div>
+<div in:blur="{{duration: 500}}">
   <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
     <div class="sm:mx-auto sm:w-full sm:max-w-sm">
       <img

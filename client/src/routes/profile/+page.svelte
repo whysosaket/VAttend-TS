@@ -1,4 +1,5 @@
 <script>
+  import { blur } from "svelte/transition";
   import Profile from "../../components/Profile/Profile.svelte";
   import Records from "../../components/Profile/Records.svelte";
 </script>
@@ -9,7 +10,7 @@
 	<html lang="en" />
 </svelte:head>
 
-<div class="flex justify-center">
+<div in:blur="{{duration: 500}}" class="flex justify-center">
     <div class="overflow-scroll">
         <Profile />
         <Records />

@@ -49,7 +49,7 @@
 	<meta name="robots" content="noindex nofollow" />
 	<html lang="en" />
 </svelte:head>
-
+<div in:blur="{{duration: 500}}">
 {#if qrCode == "ERROR" || markAttendance == "ERROR"}
   <div class="flex justify-center h-screen">
     <div class="text-center m-auto">
@@ -66,6 +66,7 @@
   </div>
 </div>
 {/if}
+</div>
 
 <style lang="postcss">
   :global(html) {

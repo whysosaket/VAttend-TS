@@ -1,4 +1,5 @@
 <script>
+    import {blur} from 'svelte/transition'
     import {goto} from '$app/navigation'
      // check if image is loaded
     function imageLoaded() {
@@ -16,7 +17,7 @@
 	<html lang="en" />
 </svelte:head>
 
-<div class="flex justify-center my-8">
+<div in:blur="{{duration: 500}}" class="flex justify-center my-8">
     <div>
         <div class="text-center">
            
