@@ -14,6 +14,6 @@ export const load = async (serverLoadEvent) => {
     if(json.success){
         return { imageURL: json.imgurl, url: json.uri };
     } else {
-        return { imageURL: "ERROR", url: "/" };
+        return { imageURL: "ERROR", url: "ERROR" };
     }
 };

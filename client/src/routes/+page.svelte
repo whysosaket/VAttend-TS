@@ -35,6 +35,8 @@
       markAttendance = await json.uri;
     } else {
       console.log(json.error);
+      qrCode = "ERROR";
+      markAttendance = "ERROR";
     }
   };
 
@@ -42,7 +44,20 @@
     clearInterval(comInterval);
   });
 </script>
+<svelte:head>
+	<title>VAttend Home</title>
+	<meta name="robots" content="noindex nofollow" />
+	<html lang="en" />
+</svelte:head>
 
+{#if qrCode == "ERROR" || markAttendance == "ERROR"}
+  <div class="flex justify-center h-screen">
+    <div class="text-center m-auto">
+      <img src="/error.svg" class="w-96 -mt-20" alt="error" />
+      <h1 class="text-2xl text-green-600 my-10 uppercase font-semibold">Something went wrong</h1>
+    </div>
+  </div>
+{:else}
 <div class="flex justify-center">
   <div class="">
     <Qr QRLink={qrCode} />
@@ -50,6 +65,7 @@
     <MarkAttendance ButtonValue="Mark Attendance" uri={markAttendance} />
   </div>
 </div>
+{/if}
 
 <style lang="postcss">
   :global(html) {

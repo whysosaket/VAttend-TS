@@ -67,6 +67,12 @@
             <li><a href="/profile" class="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300">Profile</a></li>
             <li><a href="/admin" class="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300">Admin</a></li>
             <li><a href="/about" class="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300">About</a></li>
+            <li class="p-2">
+                <a id="login" href="/login" class={`${(authToken == null)?"block":"hidden"} py-2 px-2 font-medium text-gray-500 rounded hover:bg-green-500 hover:text-white transition duration-300`}>Log In</a>
+            </li>
+            <li class="p-2">
+                <button id="logout" on:click={handleSignOut} class={`${(authToken != null)?"block":"hidden"} py-2 px-2 font-medium text-white bg-green-500 rounded hover:bg-green-400 transition duration-300`}>Log Out</button>
+            </li>
         </ul>
     </div>
 </nav>

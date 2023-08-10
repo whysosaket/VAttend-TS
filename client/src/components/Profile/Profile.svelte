@@ -1,6 +1,7 @@
 <script>
   const HOST = import.meta.env.VITE_HOST;
   import { goto } from '$app/navigation';
+  import ProfileLoadingSkeleton from './ProfileLoadingSkeleton.svelte';
 
   let user = {
     name: "N/A",
@@ -13,7 +14,10 @@
     present: false,
   };
 
+  let loaded = false;
+
   const getProfile = async () => {
+    loaded = false;
     const response = await fetch(`${HOST}/api/profile`, {
       method: "GET",
       headers: {
@@ -32,6 +36,7 @@
       user.timeAdded = details.time;
       user.admin = details.admin;
       user.present = details.present;
+      loaded = true;
     } else {
       return {};
     }
@@ -46,7 +51,9 @@
   
 </script>
 
+
 <div class="flex justify-center m-8">
+  {#if loaded}
   <div class="md:flex bg-slate-50 w-full p-4">
     <div class="text-center">
       <img
@@ -76,4 +83,7 @@
       </h1>
     </div>
   </div>
+  {:else}
+  <ProfileLoadingSkeleton />
+  {/if}
 </div>
