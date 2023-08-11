@@ -47,14 +47,11 @@
 
   
   onDestroy(unsubscribe);
-
-
-
-
   let loaded = false;
   onMount(() => {
     if(!localStorage.getItem('vattend-token')){
       goto('/');
+      loaded = true;
     } else {
       if((userContent.loggedIn==false)||(userContent.name=="N/A"||userContent.name==undefined)){
         getProfile();

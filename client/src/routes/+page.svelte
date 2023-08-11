@@ -3,6 +3,7 @@
   const HOST = import.meta.env.VITE_HOST;
   import Qr from "../components/QR.svelte";
   import MarkAttendance from "../components/MarkAttendance.svelte";
+  import AttendanceModal from "../components/Attendance/AttendanceModal.svelte";
 
   export let data;
 
@@ -43,12 +44,16 @@
   onDestroy(() => {
     clearInterval(comInterval);
   });
+
+  let isModalOpen = false;
 </script>
+
 <svelte:head>
 	<title>Home - VAttend</title>
 	<meta name="robots" content="noindex nofollow" />
 	<html lang="en" />
 </svelte:head>
+
 <div in:blur="{{duration: 500}}">
 {#if qrCode == "ERROR" || markAttendance == "ERROR"}
   <div class="flex justify-center h-screen">

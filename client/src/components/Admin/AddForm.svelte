@@ -1,5 +1,9 @@
 <script>
+  import ErrorModal from "../Modals/ErrorModal.svelte";
+
   const HOST = import.meta.env.VITE_HOST;
+  let isErrorModalOpen = false;
+  let message = "";
   const handleSubmit = async () => {
     const employeeId = document.getElementById("eid").value;
     const name = document.getElementById("name").value;
@@ -7,7 +11,9 @@
     const admin = document.getElementById("admin").value;
 
     if(!employeeId || !name || !password || !admin){
-      alert("Please fill all the fields");
+      isErrorModalOpen = false;
+      isErrorModalOpen = true;
+      message = "Please fill all the fields";
       return;
     }
 
@@ -30,12 +36,15 @@
         document.getElementById("admin").value = "";
     }
     else {
-        alert(json.error);
+      isErrorModalOpen = false;
+      isErrorModalOpen = true;
+      message = json.error;
       }
   };
 </script>
 
 <div in:blur={{ duration: 500 }}>
+  <ErrorModal isModalOpen={isErrorModalOpen} message={message} />
   <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
     <div class="sm:mx-auto sm:w-full sm:max-w-sm">
       <img

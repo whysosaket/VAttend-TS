@@ -34,6 +34,6 @@
   20% { content: "VAttend..."; }
   40% { content: "Loading..."; }
   60% { content: "VAttend..."; }
-  80% { content: "Something Seems to be Wrong!"; }
+  80% { content: "Taking Longer Than Expected!"; }
 }
 </style>

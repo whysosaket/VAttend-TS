@@ -2,9 +2,14 @@
   import {blur} from "svelte/transition";
   import { goto } from "$app/navigation";
   import { progress, user } from "../../stores.js";
+  import ErrorModal from "../../components/Modals/ErrorModal.svelte";
   function updateBar(value) {
     progress.set(value);
   }
+
+  let isErrorModalOpen = false;
+  let message = "";
+
   async function handleSubmit() {
     updateBar(0.1);
     const eid = document.getElementById("eid").value;
@@ -36,7 +41,9 @@
       }, 100);
     } else {
       updateBar(0);
-      alert(data.error);
+      isErrorModalOpen = false;
+      isErrorModalOpen = true;
+      message = data.error;
     }
   }
 </script>
@@ -48,6 +55,7 @@
 </svelte:head>
 
 <div in:blur="{{duration: 500}}">
+  <ErrorModal isModalOpen={isErrorModalOpen} message={message} />
   <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
     <div class="sm:mx-auto sm:w-full sm:max-w-sm">
       <img

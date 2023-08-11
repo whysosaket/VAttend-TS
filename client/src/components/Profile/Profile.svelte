@@ -60,7 +60,7 @@
     <div class="text-center">
       <img
         class="mx-auto w-32"
-        src={`https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png`}
+        src={`/profile.webp`}
         alt="profilePhoto"
       />
       <h1 class="font-semibold text-lg">{userContent.name}</h1>
