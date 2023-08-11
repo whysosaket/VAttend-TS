@@ -34,6 +34,17 @@ const fetchAllUsers = async (req: CustomRequest, res: Response) => {
 
 const fetchAllRecords = async (req: Request, res: Response) => {
   try {
+    let user = req.user;
+    if (!user) {
+      return res.status(400).json({ error: "Not Authorized!" });
+    }
+    user = await User.findById(user.id);
+    if (!user) {
+      return res.status(400).json({ error: "Not Authorized!" });
+    }
+    if (!user.admin) {
+      return res.status(400).json({ error: "Not Authorized!" });
+    }
     const records = await Record.find({});
     res.json(records);
   } catch (error) {
@@ -152,7 +163,8 @@ const deleteUser = async (req: CustomRequest, res: Response) => {
     }
 
     // Performing the delete operation
-    await User.findByIdAndDelete(req.body.id);
+    if(req.body.id) await User.findByIdAndDelete(req.body.id);
+    else if(req.body.employee_id) await User.deleteOne({ employee_id: req.body.employee_id });
 
     return res.json({ success: true, info: "Person Deleted!!!" });
   } catch (error) {
