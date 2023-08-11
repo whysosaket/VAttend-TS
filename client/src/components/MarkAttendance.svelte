@@ -22,7 +22,9 @@
         const authToken = localStorage.getItem("vattend-token");
 
         if(!authToken){
-            alert("Please Login First");
+            message = "Please Login First";
+            isErrorModalOpen = false;
+            isErrorModalOpen = true;
             return;
         }
         const id = uri.split("/")[5];

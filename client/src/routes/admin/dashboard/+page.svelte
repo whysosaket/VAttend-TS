@@ -26,7 +26,7 @@
 
 <div>
     <div class="flex justify-center">
-        <div class="my-8">
+        <div class="my-8 w-5/6 md:w-full">
             <h1 class="text-center font-bold text-3xl text-gray-700">All <span class="text-green-500">Employees</span></h1>
             <AllEmployess />
         </div>

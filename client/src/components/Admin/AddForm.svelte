@@ -29,7 +29,9 @@
     const json = await response.json();
     
     if(json.success){
-        alert("User added successfully");
+        isErrorModalOpen = false;
+        isErrorModalOpen = true;
+        message = "Employee Added Successfully";
         document.getElementById("eid").value = "";
         document.getElementById("name").value = "";
         document.getElementById("password").value = "";

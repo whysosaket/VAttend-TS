@@ -1,6 +1,6 @@
 <script>
     import { goto } from '$app/navigation';
-  import { onDestroy } from 'svelte';
+    import { onDestroy } from 'svelte';
     import { records, user } from '../stores.js';
     const imageURL = "/logo.png";
 
