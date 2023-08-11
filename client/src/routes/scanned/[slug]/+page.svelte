@@ -1,4 +1,5 @@
 <script>
+  import { goto } from "@sapper/app";
   import AttendanceModal from "../../../components/Attendance/AttendanceModal.svelte";
   import Loader from "../../../components/Loader.svelte";
   import ErrorModal from "../../../components/Modals/ErrorModal.svelte";
