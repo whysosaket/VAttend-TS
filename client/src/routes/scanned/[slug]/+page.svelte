@@ -77,6 +77,9 @@
       message =
         "Sorry! Device/Browser doesn't support Geolocation/Permission denied!";
     }
+    setTimeout(() => {
+      goto("/");
+    }, 9000);
   };
 
   if (!localStorage.getItem("vattend-token")) {
