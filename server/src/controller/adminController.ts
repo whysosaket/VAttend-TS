@@ -32,9 +32,9 @@ const fetchAllUsers = async (req: CustomRequest, res: Response) => {
   }
 };
 
-const fetchAllRecords = async (req: Request, res: Response) => {
+const fetchAllRecords = async (req: CustomRequest, res: Response) => {
   try {
-    let user = req.user;
+    let user:any = req.user;
     if (!user) {
       return res.status(400).json({ error: "Not Authorized!" });
     }
