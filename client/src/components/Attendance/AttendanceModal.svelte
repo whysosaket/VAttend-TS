@@ -9,9 +9,10 @@
     export let date = "";
     export let present = true;
     export let distance = "";
+    export let title = "";
 
   </script>
   
-  <Modal title="" bind:open={isModalOpen} autoclose outsideclose>
+  <Modal title={title} bind:open={isModalOpen} autoclose outsideclose>
     <AttendanceCard name={name} employeeId={employeeId} time={time} distance={distance} date={date} present={present}/>
   </Modal>

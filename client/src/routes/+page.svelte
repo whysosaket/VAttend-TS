@@ -3,7 +3,6 @@
   const HOST = import.meta.env.VITE_HOST;
   import Qr from "../components/QR.svelte";
   import MarkAttendance from "../components/MarkAttendance.svelte";
-  import AttendanceModal from "../components/Attendance/AttendanceModal.svelte";
 
   export let data;
 
