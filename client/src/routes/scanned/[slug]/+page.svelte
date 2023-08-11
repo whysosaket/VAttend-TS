@@ -78,8 +78,10 @@
         "Sorry! Device/Browser doesn't support Geolocation/Permission denied!";
     }
     setTimeout(() => {
+    isErrorModalOpen = false;
+    isModalOpen = false;
       goto("/");
-    }, 9000);
+    }, 5000);
   };
 
   if (!localStorage.getItem("vattend-token")) {
